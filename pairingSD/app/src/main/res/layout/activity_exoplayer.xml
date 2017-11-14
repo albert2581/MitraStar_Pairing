@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <com.google.android.exoplayer.AspectRatioFrameLayout android:id="@+id/video_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <SurfaceView android:id="@+id/surface_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+
+        <com.google.android.exoplayer.text.SubtitleLayout android:id="@+id/subtitles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <View android:id="@+id/shutter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+
+    </com.google.android.exoplayer.AspectRatioFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#88000000"
+        android:orientation="vertical">
+
+        <TextView android:id="@+id/player_state_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textSize="10sp"
+            tools:ignore="SmallSp"/>
+
+        <TextView android:id="@+id/debug_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textSize="10sp"
+            tools:ignore="SmallSp"/>
+
+        <LinearLayout android:id="@+id/controls_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button android:id="@+id/video_controls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/video"
+                style="@style/DemoButton"
+                android:visibility="gone"
+                android:onClick="showVideoPopup"/>
+
+            <Button android:id="@+id/audio_controls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/audio"
+                style="@style/DemoButton"
+                android:visibility="gone"
+                android:onClick="showAudioPopup"/>
+
+            <Button android:id="@+id/text_controls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text"
+                style="@style/DemoButton"
+                android:visibility="gone"
+                android:onClick="showTextPopup"/>
+
+            <Button android:id="@+id/verbose_log_controls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logging"
+                style="@style/DemoButton"
+                android:onClick="showVerboseLogPopup"/>
+
+            <Button android:id="@+id/retry_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retry"
+                android:visibility="gone"
+                style="@style/DemoButton"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:background="#88000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x2"
+            android:id="@+id/two"
+            android:layout_gravity="left|bottom"
+            android:layout_above="@+id/sixteen"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-x4"
+            android:id="@+id/backFour"
+            android:layout_gravity="right|bottom"
+            android:layout_alignTop="@+id/backTwo"
+            android:layout_toRightOf="@+id/backTwo"
+            android:layout_toEndOf="@+id/backTwo" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-x2"
+            android:id="@+id/backTwo"
+            android:layout_gravity="right|bottom"
+            android:layout_marginLeft="72dp"
+            android:layout_marginStart="72dp"
+            android:layout_above="@+id/Start"
+            android:layout_toRightOf="@+id/four"
+            android:layout_toEndOf="@+id/four" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start"
+            android:id="@+id/Start"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/thirtyTwo"
+            android:layout_toEndOf="@+id/thirtyTwo"
+            android:clickable="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x4"
+            android:id="@+id/four"
+            android:layout_gravity="left|bottom"
+            android:layout_alignTop="@+id/two"
+            android:layout_toRightOf="@+id/two"
+            android:layout_toEndOf="@+id/two" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x16"
+            android:id="@+id/sixteen"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x32"
+            android:id="@+id/thirtyTwo"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/backTwo"
+            android:layout_toStartOf="@+id/backTwo" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-x16"
+            android:id="@+id/backSixteen"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/backThirtyTwo"
+            android:layout_toStartOf="@+id/backThirtyTwo" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-x32"
+            android:id="@+id/backThirtyTwo"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/backTwo"
+            android:layout_toEndOf="@+id/backTwo" />
+    </RelativeLayout>
+
+</FrameLayout>

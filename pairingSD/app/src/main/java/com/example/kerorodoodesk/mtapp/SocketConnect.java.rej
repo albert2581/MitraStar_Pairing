@@ -1,0 +1,10 @@
+diff a/app/src/main/java/com/example/kerorodoodesk/mtapp/SocketConnect.java b/app/src/main/java/com/example/kerorodoodesk/mtapp/SocketConnect.java	(rejected hunks)
+@@ -26,7 +26,7 @@
+             e.printStackTrace();
+         }
+ 
+-        this.background = new Thread(new Runnable() {
++        (new Thread(new Runnable() {
+             public void run() {
+                 while (true) {
+                     try {
